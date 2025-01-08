@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../db/connection.js"
+import Sequelize from "../db/connection.js"
 
-const Class = sequelize.define("Class", {
+const Class = Sequelize.define("Class", {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -14,7 +14,7 @@ const Class = sequelize.define("Class", {
     description: {
         type: DataTypes.STRING(255),
         allowNull: true
-    }
+    },
 });
 
 export default Class;

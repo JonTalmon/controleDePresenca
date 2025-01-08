@@ -3,8 +3,9 @@ import express from 'express';
 const app = express();
 import sequelize from './src/db/connection.js';
 const port = process.env.PORT || 3000;
-import {getAllPersons} from './src/controllers/personControllers/personController.js'
 
+import defineAssociations from './src/models/association.js';
+defineAssociations();
 
 dotenv.config();
 
@@ -14,7 +15,6 @@ app.get("/", (req, res) => {
     res.send("Hello World")
 });
 
-app.get("/person", getAllPersons)
 
 sequelize.sync().then(() => {
     console.log("Connected to the database");

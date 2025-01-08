@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../db/connection.js"
+import Sequelize from "../db/connection.js"
 
-const Person = sequelize.define('Person', {
+const Person = Sequelize.define('Person', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -14,7 +14,7 @@ const Person = sequelize.define('Person', {
     birthday: {
         type: DataTypes.DATE,
         allowNull: true,
-    }
+    },
 });
 
 export default Person;

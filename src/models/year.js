@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
-import sequelize from "./sequelize";
+import Sequelize from "../db/connection.js"
 
-const Year = sequelize.define("Year", {
+const Year = Sequelize.define("Year", {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -11,7 +11,7 @@ const Year = sequelize.define("Year", {
         type: DataTypes.INTEGER,
         allowNull: false,
         unique: true,
-    }
+    },
 });
 
 export default Year;

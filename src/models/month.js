@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../db/connection.js"
+import Sequelize from "../db/connection.js"
 
-const Month = sequelize.define("Month", {
+const Month = Sequelize.define("Month", {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -11,7 +11,7 @@ const Month = sequelize.define("Month", {
         type: DataTypes.STRING(20),
         allowNull: false,
         validate: {
-            isIn: [["Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro"]]
+            isIn: [["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho","Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]]
         },
     },
 });

@@ -1,9 +1,11 @@
-import Year from "./year";
-import Month from "./month";
-import Day from "./day";
-import Class from "./class";
-import Person from "./person";
-import Attendance from "./attendance";
+import Year from "./year.js";
+import Month from "./month.js";
+import Day from "./day.js";
+import Class from "./class.js";
+import Person from "./person.js";
+import Attendance from "./attendance.js";
+
+const defineAssociations = () => {
 
 Year.hasMany(Month, { foreignKey: 'yearId' });
 Month.belongsTo(Year, { foreignKey: 'yearId' });
@@ -25,12 +27,6 @@ Attendance.belongsTo(Year, { foreignKey: 'yearId' });
 
 Month.hasMany(Attendance, { foreignKey: 'monthId' });
 Attendance.belongsTo(Month, { foreignKey: 'monthId' });
+};
 
-export default function applyAssociations() {
-    sequelize.models.Year = Year;
-    sequelize.models.Month = Month;
-    sequelize.models.Day = Day;
-    sequelize.models.Class = Class;
-    sequelize.models.Person = Person;
-    sequelize.models.Attendance = Attendance;
-}
+export default defineAssociations;
