@@ -7,7 +7,7 @@ const Class = sequelize.define("Class", {
         primaryKey: true,
         autoIncrement: true,
     },
-    name: {
+    classname: {
         type: DataTypes.STRING(50),
         allowNull: false,
     },
