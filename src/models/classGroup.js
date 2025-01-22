@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../db/connection.js"
 
-const Class = sequelize.define("Class", {
+const classGroup = sequelize.define("ClassGroup", {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,

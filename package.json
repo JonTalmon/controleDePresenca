@@ -6,7 +6,7 @@
     "pg": "^8.13.1",
     "sequelize": "^6.37.5"
   },
-  "name": "nova-pasta-(2)",
+  "name": "Attendance",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",

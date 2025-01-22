@@ -1,11 +1,11 @@
 import Persons from "../../models/persons";
-import Class from "../../models/class"
+import ClassGroup from "../../models/classGroup"
 
 async function getAllPersons(req, res) {
     try {
         const person = await Persons.findAll({
             include: [{
-                model: Class,
+                model: ClassGroup,
                 attributes: ['classname']
             }]
         });
@@ -20,7 +20,7 @@ async function getPersonById(req, res) {
         const { id } = req.params;
         const person = await Persons.findByPk(id, {
             include: [{
-                model: Class,
+                model: ClassGroup,
                 attributes: ['classname']
             }]
         });
@@ -41,7 +41,7 @@ async function getPersonByName(req, res) {
         const person = Persons.findOne({
             where: { name },
             include: [{
-                model: Class,
+                model: ClassGroup,
                 attributes: ['classname']
             }]
         });
@@ -59,7 +59,7 @@ async function getPersonByName(req, res) {
 async function getAllPersonsByClassName(req, res) {
     try {
         const { classname } = req.params;
-        const classInstance = await Class.findOne({
+        const classInstance = await ClassGroup.findOne({
             where: { classname },
             include: [{
                 model: Persons
@@ -76,3 +76,5 @@ async function getAllPersonsByClassName(req, res) {
         res.status(500).json({ Error: "Error retrieving persons by class name", details: err.message });
     };
 };
+
+export { getAllPersons, getPersonById, getPersonByName, getAllPersonsByClassName };

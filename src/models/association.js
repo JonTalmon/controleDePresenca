@@ -1,7 +1,7 @@
 import Year from "./year";
 import Month from "./month";
 import Day from "./day";
-import Class from "./class";
+import ClassGroup from "./classGroup";
 import Persons from "./persons";
 import Attendance from "./attendance";
 
@@ -11,11 +11,11 @@ Month.belongsTo(Year, { foreignKey: 'yearId' });
 Month.hasMany(Day, { foreignKey: 'monthId' });
 Day.belongsTo(Month, { foreignKey: 'monthId' });
 
-Class.hasMany(Attendance, { foreignKey: 'classId' });
-Attendance.belongsTo(Class, { foreignKey: 'classId' });
+ClassGroup.hasMany(Attendance, { foreignKey: 'classGroupId' });
+Attendance.belongsTo(Class, { foreignKey: 'classGroupId' });
 
-Person.hasMany(Attendance, { foreignKey: 'personsId' });
-Attendance.belongsTo(Persons, { foreignKey: 'personsId' });
+Persons.hasMany(Attendance, { foreignKey: 'personId' });
+Attendance.belongsTo(Persons, { foreignKey: 'personId' });
 
 Day.hasMany(Attendance, { foreignKey: 'dayId' });
 Attendance.belongsTo(Day, { foreignKey: 'dayId' });
@@ -30,7 +30,7 @@ export default function applyAssociations() {
     sequelize.models.Year = Year;
     sequelize.models.Month = Month;
     sequelize.models.Day = Day;
-    sequelize.models.Class = Class;
+    sequelize.models.ClassGroup = ClassGroup;
     sequelize.models.Persons = Persons;
     sequelize.models.Attendance = Attendance;
-}
+};
